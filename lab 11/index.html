@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>Тest page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="ajax.js"></script>
+    <style>
+        .bg {
+            background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+            height: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .size {
+            font-size: 22pt;
+        }
+        .up {
+            padding-top: 15%;
+        }
+    </style>
+</head>
+<body class="bg ">
+    <div class="container">
+        <div class="row font-italic">
+            <div class="col-md-12 text-md-center">
+                <form id="form1" >
+                    <p class="up">
+                        <label>
+                            Значення h=
+                            <input type="text" name="num_one" />
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Значення k=
+                            <input type="text" name="num_two" />
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Значення c=
+                            <input type="text" name="num_three" />
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Значення r=
+                            <input type="text" name="num_four" />
+                        </label>
+                    </p>
+                    <p >
+                        <label>
+                            <input type="button" id="btn1" class="btn btn-success btn-lg  size" value="Submit" />
+                            <a class="btn btn-success btn-lg  size" href="file.php" >Log file</a>
+                        </label>
+                    </p>
+                </form>
+            </div>
+            <div class="message text-md-center text-danger size"></div>
+        </div>
+    </div>
+</body>
+</html>
