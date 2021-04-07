@@ -10,12 +10,13 @@
     num2 = <input type="text" id="num2"><br>
     <p> <input type="button" id="btn1" value="Add" /> <br /> </p>
     year = <input type="text" id="year">
-    <input type="button" id="btn2" value="Submit" />  <br /> 
+    <input type="button" id="btn2" value="Submit" />  <br />
     <p> <input type="text" id="height"> </p>
     <form id="sex">
-        <input type="radio" id="man"> Чоловік
-        <input type="radio" id="woman"> Жінка
+        <input name="r1" type="radio" value="5"> Чоловік
+        <input name="r1" type="radio" value="13"> Жінка
     </form>
+    <input type="range" min="1" max="250" id="range">
     <input type="button" id="btn3" value="Ідеальна вага" /> <br />
 
     <div class="results"></div>
@@ -45,16 +46,35 @@
 		        });
 		    });
 
+
 		    $('#btn3').click(function () {
-		        $.ajax({
-		            url: 'a3.php',
-		            method: 'POST',
-		            dataType: 'html',
-		            data: ,
-		            success: function (data) {
-		                $('.results').html(data);
+		        let rad = document.getElementsByName('r1');
+		        let sex;
+		        for (let i=0; i < rad.length; i++) {
+		            if (rad[i].checked) {
+		                if (i == 0)
+		                    sex = 'man';
+		                else if (i == 1)
+		                    sex = 'woman';
+		                $.ajax({
+		                    url: 'a3.php',
+		                    method: 'POST',
+		                    dataType: 'html',
+		                    data: 'sex=' + sex +'&height=' + $('#height').val(),
+		                    success: function (data) {
+		                        $('.results').html(data);
+		                    }
+		                });
 		            }
-		        });
+		        }
+		    });
+		    $('#height').val($('#range').val());
+		    $('#range').mousemove(function () {
+		        $('#height').val($('#range').val());
+		    });
+
+		    $('#height').change(function () {
+		        $('#range').val($('#height').val());
 		    });
 		});
 
